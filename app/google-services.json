@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1039466530565",
+    "firebase_url": "https://appbasedonexam.firebaseio.com",
+    "project_id": "appbasedonexam",
+    "storage_bucket": "appbasedonexam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039466530565:android:7e247b48e3cdb140",
+        "android_client_info": {
+          "package_name": "com.example.appbasedonexam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039466530565-hbsdc56aem6ph7khms38jdl7o698lknd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appbasedonexam",
+            "certificate_hash": "860af2b6db05a7e7efde7237240ca0294dcce444"
+          }
+        },
+        {
+          "client_id": "1039466530565-od1qu89e34e44af0h35qke259asgsa7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASi03jMqG673aQwPL1PImmxrnxSNebu1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039466530565-od1qu89e34e44af0h35qke259asgsa7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

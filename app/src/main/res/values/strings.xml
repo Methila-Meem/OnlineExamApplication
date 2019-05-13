@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">AppBasedOnExam</string>
+
+    <string name="option1">Profile</string>
+    <string name="option2">Courses</string>
+    <string name="option3">QuizBank</string>
+    <string name="option4">Instructions</string>
+
+    <string name="option5">Check Your Performance</string>
+    <string name="option6">Select Your Course</string>
+    <string name="option7">See Previous Questions</string>
+    <string name="option8">Follow The Instructions</string>
+
+
+    <string name="firstBtn">option.1</string>
+    <string name="secondBtn">option.2</string>
+    <string name="thirdBtn">option.3</string>
+    <string name="fourthBtn">option.4</string>
+
+
+
+    <string-array name="Course_names">
+        <item>Computer Programming</item>
+        <item>Object Oriented Programming</item>
+        <item>Data Structure and Algorithms</item>
+        <item>Data Base Systems</item>
+        <item>Electrical Machines</item>
+        <item>Electrical Shop Practice</item>
+        <item>Circuits and Systems I</item>
+        <item>Circuits and Systems II</item>
+        <item>Analog Electronic Circuits I</item>
+        <item>Analog Electronic Circuits II</item>
+
+    </string-array>
+</resources>
