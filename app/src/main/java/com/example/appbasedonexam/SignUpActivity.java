@@ -21,109 +21,98 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
 
-        private EditText signUpEmail,signUpPassword;
-        private Button signUpButton;
-        private TextView signUpTextView;
-        private FirebaseAuth mAuth;
-        private ProgressBar progressBar;
+    private EditText signUpEmail,signUpPassword;
+    private FirebaseAuth mAuth;
+    private ProgressBar progressBar;
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_sign_up);
-            this.setTitle("Sign up");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_up);
+        this.setTitle("Sign up");
 
-            mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
-            progressBar=(ProgressBar) findViewById(R.id.progressbarId);
+        progressBar= findViewById(R.id.progressbarId);
 
-            signUpEmail=(EditText)findViewById(R.id.SignUpEmailEditTextId);
-            signUpPassword=(EditText)findViewById(R.id.SignInPasswordEditTextId);
-            signUpButton=(Button) findViewById(R.id.SignUpButtonId);
-            signUpTextView=(TextView) findViewById(R.id.SignInTextViewId);
+        signUpEmail= findViewById(R.id.SignUpEmailEditTextId);
+        signUpPassword= findViewById(R.id.SignUpPasswordEditTextId);
+        Button signUpButton = findViewById(R.id.SignUpButtonId);
+        TextView signUpTextView = findViewById(R.id.SignInTextViewId);
 
-            signUpTextView.setOnClickListener(this);
-            signUpButton.setOnClickListener(this);
-
-        }
-
-        @Override
-        public void onClick(View v) {
-
-            switch (v.getId()){
-
-                case R.id.SignUpButtonId:
-                    UserRegister();
-                    break;
-
-                case  R.id.SignInTextViewId:
-
-                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
-                    break;
-            }
-
-        }
-
-        private void UserRegister() {
-
-            String email=signUpEmail.getText().toString().trim();
-            final String password=signUpPassword.getText().toString().trim();
-
-            //checking email validity
-            if (email.isEmpty())
-              {
-                signUpEmail.setError("Enter an email");
-                signUpEmail.requestFocus();
-                return;
-              }
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-            {
-                signUpEmail.setError("Enter a valid email address");
-                signUpEmail.requestFocus();
-                return;
-            }
-
-            //checking password validity
-            if (password.isEmpty())
-            {
-                signUpPassword.setError("Enter a password");
-                signUpPassword.requestFocus();
-                return;
-            }
-            progressBar.setVisibility(View.VISIBLE);
-
-            if (password.length()<6)
-            {
-                signUpPassword.setError("Minimum length of password should be 6");
-                signUpPassword.requestFocus();
-                return;
-            }
-
-            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    progressBar.setVisibility(View.GONE);
-
-
-                    if (task.isSuccessful()) {
-
-                        Toast.makeText(getApplicationContext(),"Register is successfull",Toast.LENGTH_SHORT).show();
-                        // Sign in success, update UI with the signed-in user's information
-
-                    } else {
-                        if (task.getException() instanceof FirebaseAuthUserCollisionException)
-                        {
-                            Toast.makeText(getApplicationContext(),"User is already registered",Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(getApplicationContext(),"Error:"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-                        }
-                        // If sign in fails, display a message to the user.
-
-                    }
-                }
-            });
+        signUpTextView.setOnClickListener(this);
+        signUpButton.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.SignUpButtonId:
+                UserRegister();
+                break;
+            case  R.id.SignInTextViewId:
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
+    private void UserRegister() {
+
+        String email=signUpEmail.getText().toString().trim();
+        final String password=signUpPassword.getText().toString().trim();
+
+        //checking email validity
+        if (email.isEmpty()) {
+            signUpEmail.setError("Enter an email");
+            signUpEmail.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            signUpEmail.setError("Enter a valid email address");
+            signUpEmail.requestFocus();
+            return;
+        }
+
+        //checking password validity
+        if (password.isEmpty()) {
+            signUpPassword.setError("Enter a password");
+            signUpPassword.requestFocus();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        if (password.length() < 6) {
+            signUpPassword.setError("Minimum length of password should be 6");
+            signUpPassword.requestFocus();
+            return;
+        }
+
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
+
+                if (task.isSuccessful()) {
+                    startActivity(new Intent(SignUpActivity.this, FrontActivity.class));
+                    finish();
+                    Toast.makeText(getApplicationContext(),"Register is successfull",Toast.LENGTH_SHORT).show();
+                    // Sign in success, update UI with the signed-in user's information
+                } else {
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                        finish();
+                        Toast.makeText(getApplicationContext(),"User is already registered!\nplease sign in",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(),"Error:"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                    // If sign in fails, display a message to the user.
+                }
+            }
+        });
+    }
 }

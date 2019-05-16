@@ -20,9 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
    private EditText signInEmail,signInPassword;
-   private Button signInButton;
-   private TextView signInTextview;
-   private ProgressBar progressBar;
+    private ProgressBar progressBar;
     private FirebaseAuth mAuth;
 
     @Override
@@ -31,36 +29,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         this.setTitle("Sign in");
 
-
         mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(MainActivity.this, FrontActivity.class));
+            finish();
+        }
 
-        signInEmail=(EditText)findViewById(R.id.SignInEmailEditTextId);
-        signInPassword=(EditText)findViewById(R.id.SignInPasswordEditTextId);
-        signInButton=(Button) findViewById(R.id.SignInButtonId);
-        signInTextview=(TextView) findViewById(R.id.SignUpTextViewId);
-        progressBar=(ProgressBar) findViewById(R.id.progressbarId);
+        signInEmail = findViewById(R.id.SignInEmailEditTextId);
+        signInPassword = findViewById(R.id.SignInPasswordEditTextId);
+        Button signInButton = findViewById(R.id.SignInButtonId);
+        TextView signInTextview = findViewById(R.id.SignUpTextViewId);
+        progressBar = findViewById(R.id.progressbarId);
 
         signInTextview.setOnClickListener(this);
         signInButton.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()){
-
             case R.id.SignInButtonId:
                 userLogin();
                 break;
-
             case  R.id.SignUpTextViewId:
-
                 Intent intent=new Intent(getApplicationContext(),SignUpActivity.class);
                 startActivity(intent);
                 break;
         }
-
     }
 
     private void userLogin() {
@@ -83,16 +78,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //checking password validity
-        if (password.isEmpty())
-        {
+        if (password.isEmpty()) {
             signInPassword.setError("Enter a password");
             signInPassword.requestFocus();
             return;
         }
 
-
-        if (password.length()<6)
-        {
+        if (password.length()<6) {
             signInPassword.setError("Minimum length of password should be 6");
             signInPassword.requestFocus();
             return;
@@ -106,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
            progressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()){
-
                     Intent intent=new Intent(getApplicationContext(),FrontActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
