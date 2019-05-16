@@ -3,9 +3,9 @@ package com.example.appbasedonexam;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,8 +35,9 @@ public class UploadActivity extends AppCompatActivity {
 
         editPDFName=(EditText)findViewById(R.id.txt_pdfName);
         btn_upload=(Button)findViewById(R.id.btn_upload);
-        storageReference=FirebaseStorage.getInstance().getReference();
-        databaseReference=FirebaseDatabase.getInstance().getReference("Uploads");
+
+        storageReference= FirebaseStorage.getInstance().getReference();
+        databaseReference= FirebaseDatabase.getInstance().getReference("Uploads");
 
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +99,6 @@ public class UploadActivity extends AppCompatActivity {
     }
 
     public void btn_action(View view) {
-        startActivity(new Intent(getApplicationContext(), QuizBankActivity.class));
+        startActivity(new Intent(getApplicationContext(), Ques_BankActivity.class));
     }
 }

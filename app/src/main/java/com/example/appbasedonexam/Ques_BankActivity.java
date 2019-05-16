@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizBankActivity extends AppCompatActivity {
+public class Ques_BankActivity extends AppCompatActivity {
     ListView myPDFListView;
     DatabaseReference databaseReference;
    List<uploadPDF>uploadPDFS;

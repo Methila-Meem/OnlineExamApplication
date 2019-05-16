@@ -19,10 +19,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    EditText signInEmail,signInPassword;
-    Button signInButton;
-    TextView signInTextview;
-    ProgressBar progressBar;
+   private EditText signInEmail,signInPassword;
+   private Button signInButton;
+   private TextView signInTextview;
+   private ProgressBar progressBar;
     private FirebaseAuth mAuth;
 
     @Override
@@ -105,9 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
 
            progressBar.setVisibility(View.GONE);
-                if (task.isSuccessful())
-                {
-                    finish();
+                if (task.isSuccessful()){
 
                     Intent intent=new Intent(getApplicationContext(),FrontActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

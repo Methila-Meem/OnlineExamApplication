@@ -23,7 +23,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         private EditText signUpEmail,signUpPassword;
         private Button signUpButton;
-        private TextView signUpTextview;
+        private TextView signUpTextView;
         private FirebaseAuth mAuth;
         private ProgressBar progressBar;
 
@@ -41,9 +41,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             signUpEmail=(EditText)findViewById(R.id.SignUpEmailEditTextId);
             signUpPassword=(EditText)findViewById(R.id.SignInPasswordEditTextId);
             signUpButton=(Button) findViewById(R.id.SignUpButtonId);
-            signUpTextview=(TextView) findViewById(R.id.SignInTextViewId);
+            signUpTextView=(TextView) findViewById(R.id.SignInTextViewId);
 
-            signUpTextview.setOnClickListener(this);
+            signUpTextView.setOnClickListener(this);
             signUpButton.setOnClickListener(this);
 
         }

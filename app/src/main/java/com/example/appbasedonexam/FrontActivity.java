@@ -35,7 +35,7 @@ public class FrontActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
 
         } else if (v.getId() == R.id.quizBankCardViewID) {
-            Intent intent = new Intent(FrontActivity.this, QuizBankActivity.class);
+            Intent intent = new Intent(FrontActivity.this,Ques_BankActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.instructionsCardViewID) {
             Intent intent = new Intent(FrontActivity.this, InstructionsActivity.class);
