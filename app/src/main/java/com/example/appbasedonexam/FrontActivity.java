@@ -1,28 +1,77 @@
 package com.example.appbasedonexam;
 
 import android.content.Intent;
+import android.sax.StartElementListener;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-public class FrontActivity extends AppCompatActivity implements View.OnClickListener {
-    private CardView profileCardView, coursesCardView, quizBankCardView, instructionsCardView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 
+public class FrontActivity extends AppCompatActivity implements View.OnClickListener {
+    private CardView profileCardView;
+    private CardView coursesCardView;
+    private CardView instructionsCardView;
+    private CardView quizBankCardView;
+
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_front);
+        setContentView(R.layout.navigation_drawer);
+
+        mAuth=FirebaseAuth.getInstance();
 
         profileCardView = findViewById(R.id.profileCardViewID);
         coursesCardView = findViewById(R.id.coursesCardViewID);
         quizBankCardView = findViewById(R.id.quizBankCardViewID);
         instructionsCardView = findViewById(R.id.instructionsCardViewID);
 
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawerLayout=findViewById(R.id.drawer_layout);
+        navigationView=findViewById(R.id.navigation_view);
+
+        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_drawer,R.string.close_drawer);
+        drawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
+
         profileCardView.setOnClickListener(this);
         coursesCardView.setOnClickListener(this);
         quizBankCardView.setOnClickListener(this);
         instructionsCardView.setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_layout,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId()==R.id.signOutId){
+            FirebaseAuth.getInstance().signOut();
+            finish();
+
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

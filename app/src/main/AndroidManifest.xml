@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QuizQuestionActivity" />
+        <activity android:name=".Question$QuizQuestionActivity" />
         <activity android:name=".HelperActivity" />
         <activity android:name=".ResultActivity"/>
         <activity android:name=".FrontActivity" />

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">AppBasedOnExam</string>
 
+    <string name="open_drawer">open navigation drawer</string>
+    <string name="close_drawer">close navigation drawer</string>
+
     <string name="option1">Profile</string>
     <string name="option2">Courses</string>
     <string name="option3">QuizBank</string>

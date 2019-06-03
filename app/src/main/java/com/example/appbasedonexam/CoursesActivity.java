@@ -31,17 +31,17 @@ public class CoursesActivity extends AppCompatActivity {
                 Toast.makeText(CoursesActivity.this, value, Toast.LENGTH_SHORT).show();
 
                 if (position==0) {
-                    Intent intent = new Intent(view.getContext(),QuizQuestionActivity.class);
+                    Intent intent = new Intent(view.getContext(), Question.QuizQuestionActivity.class);
                     startActivityForResult(intent,0);
 
                 }
                 if (position==1) {
-                    Intent intent = new Intent(view.getContext(),QuizQuestionActivity.class);
+                    Intent intent = new Intent(view.getContext(), Question.QuizQuestionActivity.class);
                     startActivityForResult(intent,1);
 
                 }
                 if (position==2) {
-                    Intent intent = new Intent(view.getContext(),QuizQuestionActivity.class);
+                    Intent intent = new Intent(view.getContext(), Question.QuizQuestionActivity.class);
                     startActivityForResult(intent,2);
 
                 }
