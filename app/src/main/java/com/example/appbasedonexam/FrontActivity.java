@@ -17,10 +17,6 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class FrontActivity extends AppCompatActivity implements View.OnClickListener {
-    private CardView profileCardView;
-    private CardView coursesCardView;
-    private CardView instructionsCardView;
-    private CardView quizBankCardView;
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -33,20 +29,24 @@ public class FrontActivity extends AppCompatActivity implements View.OnClickList
 
         mAuth=FirebaseAuth.getInstance();
 
-        profileCardView = findViewById(R.id.profileCardViewID);
-        coursesCardView = findViewById(R.id.coursesCardViewID);
-        quizBankCardView = findViewById(R.id.quizBankCardViewID);
-        instructionsCardView = findViewById(R.id.instructionsCardViewID);
-
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.navigation_view);
 
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open_drawer,R.string.close_drawer);
-        drawerLayout.setDrawerListener(toggle);
+        drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        CardView profileCardView = findViewById(R.id.profileCardViewID);
+        CardView coursesCardView = findViewById(R.id.coursesCardViewID);
+        CardView quizBankCardView = findViewById(R.id.quizBankCardViewID);
+        CardView instructionsCardView = findViewById(R.id.instructionsCardViewID);
 
         profileCardView.setOnClickListener(this);
         coursesCardView.setOnClickListener(this);
