@@ -5,14 +5,124 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/floral_white"
+    android:orientation="vertical"
+    android:background="@color/Background"
     tools:context=".InstructionsActivity">
 
     <TextView
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textAppearance="?android:textAppearanceLarge"
-        android:text="Welcome to Instructions"
+        android:text="Follow the following instruction:"
+        android:textColor="@color/Dark_Background"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="8dp"
+        android:layout_height="wrap_content"
+        android:gravity="start" />
+
+
+    <TextView
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="1.If you are a new user please Signup."
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/colorBlack"
+        android:padding="0dp"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:gravity="start" />
+
+
+    <TextView
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="2.After finishing your Signup procedure do Signin ."
+        android:layout_width="match_parent"
+       android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="0dp"
+        android:textSize="14sp"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+        android:gravity="start" />
+
+    <TextView
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="3.Select your needed option."
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/colorBlack"
+        android:padding="0dp"
+        android:textSize="14sp"
+
+        android:layout_height="wrap_content"
+        android:gravity="start"/>
+
+    <TextView
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="4.Get your question in Question-Bank section after exam "
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginRight="20dp"
+        android:padding="0dp"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:gravity="start"/>
+
+    <TextView
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="5.Enter your course to give your quiz."
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="0dp"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:gravity="start"/>
+
+    <TextView
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="6.After finishing time you can't answer any question."
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="18dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginRight="20dp"
+        android:padding="8dp"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:gravity="start"/>
+    <TextView
+        android:textAlignment="textStart"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="7.After completing exam you can see your result."
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="0dp"
+        android:textSize="14sp"
+        android:textColor="@color/colorBlack"
+        android:layout_height="wrap_content"
+
+        android:gravity="start"/>
+
 
 </LinearLayout>

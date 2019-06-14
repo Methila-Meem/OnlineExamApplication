@@ -1,9 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
+    android:orientation="vertical"
     tools:context=".HelperActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name:"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+
+
+    <TextView
+        android:id="@+id/name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name1"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email:"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+    <TextView
+        android:id="@+id/email1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="email1"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+    <TextView
+        android:id="@+id/marks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="marks:"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+
+    <TextView
+        android:id="@+id/marks1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="marks1:"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+    <TextView
+        android:id="@+id/course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="course_name:"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+
+    <TextView
+        android:id="@+id/course_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="course_name1"
+        android:layout_margin="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:padding="8dp"
+
+
+        />
+
+
+
+
+
+</LinearLayout>

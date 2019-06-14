@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/floral_white"
+    android:background="@color/Background"
     tools:context=".CoursesActivity">
     
     <ListView
-        android:listSelector="#FD8D62"
+        android:listSelector="@color/Dark_Background"
         android:dividerHeight="3dp"
-        android:divider="#FD8D62"
+        android:divider="@color/Dark_Background"
         android:id="@+id/ListViewID"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

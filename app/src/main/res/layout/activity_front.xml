@@ -5,16 +5,17 @@
     android:layout_height="match_parent"
     android:weightSum="2"
     android:gravity="center"
-    android:background="@color/floral_white"
+    android:background="@color/Background"
     android:padding="5dp"
     android:orientation="vertical"
     tools:context=".FrontActivity">
 
     <android.support.v7.widget.Toolbar
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="40dp"
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
-        android:background="?attr/colorPrimary" />
+        android:layout_margin="5dp"
+        android:background="@color/Dark_Background" />
 
     <LinearLayout
         android:gravity="center"
@@ -26,7 +27,7 @@
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:id="@+id/profileCardViewID"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -69,7 +70,7 @@
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:id="@+id/coursesCardViewID"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -125,7 +126,7 @@
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:id="@+id/quizBankCardViewID"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -168,7 +169,7 @@
         <android.support.v7.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:id="@+id/instructionsCardViewID"
             android:layout_weight="1"
             android:layout_width="0dp"

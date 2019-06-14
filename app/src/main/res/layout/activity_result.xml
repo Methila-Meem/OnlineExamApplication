@@ -4,8 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/floral_white"
+    android:background="@color/Background"
     tools:context=".ResultActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scores:"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="40dp"
+        android:textSize="22dp"
+        android:textColor="@color/Dark_Background"
+        android:textStyle="bold"
+
+        />
 
 
     <TextView
@@ -15,10 +27,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="59dp"
-        android:layout_marginLeft="59dp"
-        android:layout_marginTop="117dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="120dp"
         android:text="Total Questions"
+        android:textColor="@color/colorBlack"
+
         android:textSize="20dp" />
 
     <TextView
@@ -27,10 +41,12 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="-5dp"
         android:text="Correct Answers"
         android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="37dp"
         android:layout_alignRight="@+id/textView"
         android:layout_marginRight="-5dp" />
 
@@ -43,8 +59,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginBottom="231dp"
+       android:layout_marginBottom="420dp"
         android:text="Wrong Answers"
+        android:textColor="@color/colorBlack"
         android:textSize="20dp" />
 
     <TextView
@@ -58,6 +75,7 @@
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
         android:text="TextView"
+        android:textColor="@color/colorBlack"
         android:textSize="20dp" />
 
     <TextView
@@ -71,6 +89,7 @@
         android:text="TextView"
         android:textSize="20dp"
         android:layout_alignRight="@+id/textView4"
+        android:textColor="@color/colorBlack"
         android:layout_marginRight="0dp" />
 
     <TextView
@@ -82,7 +101,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginBottom="230dp"
+        android:layout_marginBottom="420dp"
+        android:textColor="@color/colorBlack"
         android:text="TextView"
         android:textSize="20dp" />
+
+
+
 </RelativeLayout>

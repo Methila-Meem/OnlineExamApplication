@@ -6,7 +6,7 @@
     <item
         android:title="Sign out"
         android:id="@+id/signOutId"
-        app:showAsAction="always"
+
 
         />
 </menu>

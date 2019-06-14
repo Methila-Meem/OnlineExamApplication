@@ -57,4 +57,10 @@
     <color name="dark_blue">#00008B</color>
     <color name="navy">#000080</color>
     <color name="black">#000000</color>
+
+    <color name="Background">#D1C4E9</color>
+    <color name="Dark_Background">#512DA8</color>
+    <color name="colorBlack">#050505</color>
+    <color name="colorWhite">#FCFAFA</color>
+    <color name="Light_Background">#EDE7F6</color>
 </resources>
