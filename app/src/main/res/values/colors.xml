@@ -12,8 +12,8 @@
     <color name="orange_red">#FF4500</color>
     <color name="deep_pink">#FF1493</color>
     <color name="magenta">#FF00FF</color>
-    <color name="red">#FF0000</color>
-    <color name="fire_brick">#B22222</color>
+
+    <color name="fire_k">#B22222</color>
     <color name="powder_blue">#B0E0E6</color>
     <color name="light_steel_blue">#B0C4DE</color>
     <color name="pale_turquoise">#AFEEEE</color>
@@ -63,4 +63,6 @@
     <color name="colorBlack">#050505</color>
     <color name="colorWhite">#FCFAFA</color>
     <color name="Light_Background">#EDE7F6</color>
+    <color name="colorGreen">#00FA9A</color>
+    <color name="colorRed">#FF0000</color>
 </resources>

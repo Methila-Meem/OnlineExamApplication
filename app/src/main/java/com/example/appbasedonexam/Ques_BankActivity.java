@@ -31,7 +31,7 @@ public class Ques_BankActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_file);
-        myPDFListView=(ListView)findViewById(R.id.myListView);
+        myPDFListView= findViewById(R.id.myListView);
         uploadPDFS=new ArrayList<>();
 
         viewAllFiles();
@@ -40,7 +40,6 @@ public class Ques_BankActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 uploadPDF uploadPDF=uploadPDFS.get(position);
-
                 Intent intent=new Intent();
                 intent.setType(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(uploadPDF.getUrl()));
@@ -72,8 +71,8 @@ public class Ques_BankActivity extends AppCompatActivity {
                     public View getView(int position,  View convertView,  ViewGroup parent) {
 
                         View view=super.getView(position, convertView, parent);
-                        TextView mytext=(TextView)findViewById(android.R.id.text1);
-                        mytext.setTextColor(Color.BLACK);
+//                        TextView mytext=(TextView)findViewById(android.R.id.text1);
+//                        mytext.setTextColor(Color.BLACK);
                         return view;
                     }
                 };

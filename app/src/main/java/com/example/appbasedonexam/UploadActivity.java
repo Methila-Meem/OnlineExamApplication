@@ -1,10 +1,15 @@
 package com.example.appbasedonexam;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +27,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class UploadActivity extends AppCompatActivity {
 
+    private static final int MY_PERMISSIONS_REQUEST = 123;
     EditText editPDFName;
     Button btn_upload;
     StorageReference storageReference;
@@ -33,8 +39,8 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
-        editPDFName=(EditText)findViewById(R.id.txt_pdfName);
-        btn_upload=(Button)findViewById(R.id.btn_upload);
+        editPDFName=findViewById(R.id.txt_pdfName);
+        btn_upload= findViewById(R.id.btn_upload);
 
         storageReference= FirebaseStorage.getInstance().getReference();
         databaseReference= FirebaseDatabase.getInstance().getReference("Uploads");
@@ -48,10 +54,30 @@ public class UploadActivity extends AppCompatActivity {
 
     }
 
-    private void selectPDFfile() {
+    private void checkPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
+            } else {
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST);
+            }
+        } else {
+            selectPDFfile();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MY_PERMISSIONS_REQUEST) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                selectPDFfile();
+            }
+        }
+    }
+
+    private void selectPDFfile() {
         Intent intent=new Intent();
-        intent.setType("application/pdf");
+        intent.setType("pdf/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Select PDF file"),1);
     }
@@ -60,7 +86,7 @@ public class UploadActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==1 && requestCode==RESULT_OK  && data!=null && data.getData()!=null){
+        if(requestCode==1 && resultCode==RESULT_OK  && data!=null && data.getData()!=null){
             uploadPDffile(data.getData());
         }
     }
