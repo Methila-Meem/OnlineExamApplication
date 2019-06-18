@@ -1,5 +1,7 @@
 package com.example.appbasedonexam;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -10,28 +12,57 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
+
 public class Ques_BankActivity extends AppCompatActivity {
     ListView myPDFListView;
     DatabaseReference databaseReference;
-   List<uploadPDF>uploadPDFS;
+    FirebaseStorage firebaseStorage;
+    StorageReference storageReference;
+    List<uploadPDF>uploadPDFS;
+
+    StorageReference ref;
+
+    Button btn;
+    private Object DownloadManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_file);
         myPDFListView= findViewById(R.id.myListView);
+        btn=findViewById(R.id.download);
+
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
+
         uploadPDFS=new ArrayList<>();
 
         viewAllFiles();
@@ -46,6 +77,46 @@ public class Ques_BankActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+
+
+
+    public void download()
+    {
+
+        storageReference=FirebaseStorage.getInstance().getReference();
+        ref=storageReference.child(" SQL programming language by oracle.pdf");
+
+        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+
+                String url=uri.toString();
+
+                downloadfile(Ques_BankActivity.this,"SQL programming language by oracle",".pdf",DIRECTORY_DOWNLOADS,url);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+
+    public void downloadfile(Context context,String filename,String fileExtension,String destinationDirectory,String url){
+
+
+        DownloadManager downloadManager= (DownloadManager)context.getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri=Uri.parse(url);
+        DownloadManager.Request request=new DownloadManager.Request(uri);
+
+
+
+        request.setDestinationInExternalFilesDir(context,destinationDirectory,filename+fileExtension);
+
+        downloadManager.enqueue(request);
     }
 
     private void viewAllFiles() {
