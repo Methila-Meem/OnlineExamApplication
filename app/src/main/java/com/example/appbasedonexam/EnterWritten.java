@@ -1,0 +1,142 @@
+package com.example.appbasedonexam;
+
+import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Locale;
+
+public class EnterWritten extends AppCompatActivity {
+
+    TextView roll,course_no,date;
+    EditText roll1,course_no1,date1;
+    Button let_start,done_btn;
+    DatabaseReference databaseReference;
+
+    DatePickerDialog datePickerDialog;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_enter_written);
+
+
+       databaseReference=FirebaseDatabase.getInstance().getReference("students");
+
+        roll=findViewById(R.id.roll);
+        roll1=findViewById(R.id.edit_roll);
+        course_no=findViewById(R.id.course_no);
+        course_no1=findViewById(R.id.edit_courseNo);
+        date=findViewById(R.id.date);
+        date1=findViewById(R.id.edit_roll);
+        let_start=findViewById(R.id.ButtonId);
+        done_btn=findViewById(R.id.done_btn);
+
+        done_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveData();
+            }
+        });
+
+
+
+        let_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v.getId()==R.id.ButtonId)
+                {
+                    check();
+                }
+            }
+
+            private void check()
+
+            {
+
+                String roll=roll1.getText().toString().trim();
+                String course_no=course_no1.getText().toString().trim();
+                String date=date1.getText().toString().trim();
+
+                //roll checking
+
+                if (roll.isEmpty()) {
+                   roll1.setError("Enter a roll");
+                    roll1.requestFocus();
+                    return;
+                }
+
+                if (roll.length()<7) {
+                    roll1.setError("Valid roll length of roll should be 7");
+                    roll1.requestFocus();
+                    return;
+                }
+
+                //check course
+
+                if (course_no.isEmpty()) {
+                    course_no1.setError("Enter a roll");
+                    course_no1.requestFocus();
+                    return;
+                }
+
+                //check date
+
+                if (date.isEmpty()) {
+                    date1.setError("Enter a roll");
+                    date1.requestFocus();
+                    return;
+                }
+
+            }
+        });
+
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePicker datePicker=new DatePicker(EnterWritten.this);
+                int currentDay=datePicker.getDayOfMonth();
+                int currentMonth=datePicker.getMonth()+1;
+                int currentYear=datePicker.getYear();
+
+                datePickerDialog=new DatePickerDialog(EnterWritten.this,
+
+                        new DatePickerDialog.OnDateSetListener(){
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                                date.setText(String.format(Locale.getDefault(),"Exam_Date:  %d/%d/%d", dayOfMonth, month + 1, year));
+
+                            }
+                        },currentYear,currentMonth,currentDay);
+
+                datePickerDialog.show();
+            }
+        });
+
+    }
+
+    public void saveData()
+    {
+        String roll=roll1.getText().toString().trim();
+        String course_no=course_no1.getText().toString().trim();
+        String date=date1.getText().toString().trim();
+
+        String key=databaseReference.push().getKey();
+        student student=new student(roll,course_no,date);
+        databaseReference.child(key).setValue(student);
+    }
+
+
+}

@@ -12,25 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Question$QuizQuestionActivity" />
-        <activity android:name=".Ques_BankActivity"/>
+        <activity android:name=".writtenExam"></activity>
+        <activity android:name=".EnterWritten" />
+        <activity android:name=".QuizQuestionActivity" />
+        <activity android:name=".Ques_BankActivity" />
         <activity android:name=".HelperActivity" />
-        <activity android:name=".ResultActivity"/>
+        <activity android:name=".ResultActivity" />
         <activity android:name=".FrontActivity" />
         <activity android:name=".CoursesActivity" />
-        <activity android:name=".InstructionsActivity"/>
-        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".InstructionsActivity" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".UploadActivity" />
-        <activity android:name=".Ques_BankActivity" />
-        <activity android:name=".QuizQuestionActivity" />
     </application>
 
 </manifest>

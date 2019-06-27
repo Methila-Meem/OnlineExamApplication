@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context=".EnterWritten">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        android:layout_marginTop="70dp"
+        >
+
+    <TextView
+        android:id="@+id/roll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roll:"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        />
+
+        <EditText
+            android:id="@+id/edit_roll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Enter your roll"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/course_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course_No:"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            />
+
+        <EditText
+            android:id="@+id/edit_courseNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Enter your courseNo"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exam_Date:"
+            android:textStyle="bold"
+            android:textSize="28sp"
+
+            />
+
+        <EditText
+            android:id="@+id/edit_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Enter exam date"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/done-btn"
+        android:layout_marginTop="10dp"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:text="Done"
+        android:layout_width="match_parent"
+        android:background="@color/Dark_Background"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
+
+
+
+    <Button
+        android:id="@+id/ButtonId"
+        android:layout_marginTop="150dp"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:text="Let's Strat"
+        android:layout_width="150dp"
+        android:background="@drawable/signin_bg"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

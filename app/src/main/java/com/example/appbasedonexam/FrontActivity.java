@@ -77,7 +77,7 @@ public class FrontActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.profileCardViewID) {
-            Intent intent = new Intent(FrontActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(FrontActivity.this, EnterWritten.class);
             startActivity(intent);
         } else if (v.getId() == R.id.coursesCardViewID) {
             Intent intent = new Intent(FrontActivity.this, CoursesActivity.class);

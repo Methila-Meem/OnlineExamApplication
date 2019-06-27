@@ -4,13 +4,13 @@
     <string name="open_drawer">open navigation drawer</string>
     <string name="close_drawer">close navigation drawer</string>
 
-    <string name="option1">Profile</string>
-    <string name="option2">Courses</string>
-    <string name="option3">QuizBank</string>
+    <string name="option1">Written_Exam</string>
+    <string name="option2">Quiz</string>
+    <string name="option3">QuestionBank</string>
     <string name="option4">Instructions</string>
 
-    <string name="option5">Check Your Performance</string>
-    <string name="option6">Select Your Course</string>
+    <string name="option5">Get Prepared for Written</string>
+    <string name="option6">Get Prepared for Quiz</string>
     <string name="option7">See Previous Questions</string>
     <string name="option8">Follow The Instructions</string>
 
