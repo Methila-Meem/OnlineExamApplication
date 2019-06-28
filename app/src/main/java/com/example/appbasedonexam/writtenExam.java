@@ -40,7 +40,7 @@ public class writtenExam extends AppCompatActivity {
         submit = findViewById(R.id.submit1);
 
         updateQuestion();
-        reverseTimer(30, timer);
+        ReverseTimer(30, timer);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class writtenExam extends AppCompatActivity {
 
                 }
 
-                public void reverseTimer(int seconds, final TextView tv)
+                public void ReverseTimer(int seconds, final TextView tv)
                 {
                     new CountDownTimer(seconds* 1000 + 1000,1000) {
                         @Override
