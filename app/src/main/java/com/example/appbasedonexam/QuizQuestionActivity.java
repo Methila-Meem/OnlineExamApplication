@@ -60,20 +60,20 @@ public class QuizQuestionActivity extends AppCompatActivity {
 
         }
         else {
-            reference = FirebaseDatabase.getInstance().getReference().child("Sheet1").child(String.valueOf(total));
-            reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    final Question question = dataSnapshot.getValue(Question.class);
-                    if(question != null) {
-                        t1_question.setText(question.getQuestion());
-                        b1.setText(question.getOption1());
-                        b2.setText(question.getOption2());
-                        b3.setText(question.getOption3());
-                        b4.setText(question.getOption4());
-                    } else {
-                        System.out.println("total=" + total);
-                    }
+                        reference = FirebaseDatabase.getInstance().getReference().child("Sheet1").child(String.valueOf(total));
+                        reference.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                final Question question = dataSnapshot.getValue(Question.class);
+                                if(question != null) {
+                                    t1_question.setText(question.getQuestion());
+                                    b1.setText(question.getOption1());
+                                    b2.setText(question.getOption2());
+                                    b3.setText(question.getOption3());
+                                    b4.setText(question.getOption4());
+                                } else {
+                                    System.out.println("total=" + total);
+                                }
 
                     b1.setOnClickListener(new View.OnClickListener() {
                         @Override

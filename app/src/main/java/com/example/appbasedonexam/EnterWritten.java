@@ -14,12 +14,13 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.Year;
 import java.util.Locale;
 
 public class EnterWritten extends AppCompatActivity {
 
-    TextView roll,course_no,date;
-    EditText roll1,course_no1,date1;
+    TextView roll,course_no,year,semester,date;
+    EditText roll1,course_no1,date1,year1,semester1;
     Button let_start,done_btn;
     DatabaseReference databaseReference;
 
@@ -38,6 +39,10 @@ public class EnterWritten extends AppCompatActivity {
         course_no1=findViewById(R.id.edit_courseNo);
         date=findViewById(R.id.date);
         date1=findViewById(R.id.edit_roll);
+        year=findViewById(R.id.Year);
+        year1=findViewById(R.id.edit_year);
+        semester=findViewById(R.id.semester);
+        semester1=findViewById(R.id.edit_semester);
         let_start=findViewById(R.id.ButtonId);
         done_btn=findViewById(R.id.done_btn);
 
@@ -65,6 +70,8 @@ public class EnterWritten extends AppCompatActivity {
 
                 String roll=roll1.getText().toString().trim();
                 String course_no=course_no1.getText().toString().trim();
+                String year=year1.getText().toString().trim();
+                String semester=semester1.getText().toString().trim();
                 String date=date1.getText().toString().trim();
 
                 //roll checking
@@ -84,15 +91,29 @@ public class EnterWritten extends AppCompatActivity {
                 //check course
 
                 if (course_no.isEmpty()) {
-                    course_no1.setError("Enter a roll");
+                    course_no1.setError("Enter a course_no");
                     course_no1.requestFocus();
+                    return;
+                }
+
+                //check year and smester
+
+                if (year.isEmpty()) {
+                    date1.setError("Enter a year");
+                    date1.requestFocus();
+                    return;
+                }
+
+                if (semester.isEmpty()) {
+                    date1.setError("Enter a semester");
+                    date1.requestFocus();
                     return;
                 }
 
                 //check date
 
                 if (date.isEmpty()) {
-                    date1.setError("Enter a roll");
+                    date1.setError("Enter a date");
                     date1.requestFocus();
                     return;
                 }
@@ -137,6 +158,7 @@ public class EnterWritten extends AppCompatActivity {
         student student=new student(roll,course_no,date);
         databaseReference.child(key).setValue(student);
     }
+
 
 
 }
