@@ -9,12 +9,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.time.Year;
 import java.util.Locale;
 
 public class EnterWritten extends AppCompatActivity {
@@ -30,15 +29,14 @@ public class EnterWritten extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_written);
 
-
-       databaseReference=FirebaseDatabase.getInstance().getReference("students");
+        databaseReference=FirebaseDatabase.getInstance().getReference("students");
 
         roll=findViewById(R.id.roll);
         roll1=findViewById(R.id.edit_roll);
         course_no=findViewById(R.id.course_no);
         course_no1=findViewById(R.id.edit_courseNo);
         date=findViewById(R.id.date);
-        date1=findViewById(R.id.edit_roll);
+        date1=findViewById(R.id.edit_date);
         year=findViewById(R.id.Year);
         year1=findViewById(R.id.edit_year);
         semester=findViewById(R.id.semester);
@@ -52,8 +50,6 @@ public class EnterWritten extends AppCompatActivity {
                 saveData();
             }
         });
-
-
 
         let_start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,12 +111,9 @@ public class EnterWritten extends AppCompatActivity {
                 if (date.isEmpty()) {
                     date1.setError("Enter a date");
                     date1.requestFocus();
-                    return;
                 }
-
             }
         });
-
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,20 +138,22 @@ public class EnterWritten extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
     }
 
-    public void saveData()
-    {
+    public void saveData() {
         String roll=roll1.getText().toString().trim();
         String course_no=course_no1.getText().toString().trim();
         String date=date1.getText().toString().trim();
 
         String key=databaseReference.push().getKey();
         student student=new student(roll,course_no,date);
-        databaseReference.child(key).setValue(student);
+        if (key != null) {
+            databaseReference.child(key).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    startActivity(new Intent(EnterWritten.this, writtenExam.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                }
+            });
+        }
     }
-
-
-
 }

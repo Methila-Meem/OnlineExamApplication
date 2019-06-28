@@ -57,7 +57,7 @@ public class writtenExam extends AppCompatActivity {
 
 
         String key = databaseReference.push().getKey();
-        student student = new student(answer);
+        student student = new student(name);
         databaseReference.child(key).setValue(student);
     }
 
@@ -78,46 +78,37 @@ public class writtenExam extends AppCompatActivity {
                     final student question = dataSnapshot.getValue(student.class);
                     if (question!= null) {
                          question.setText(question.getQues());
-
-
                     } else {
                         System.out.println("total=" + total);
                     }
-
-
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-
-                public void ReverseTimer(int seconds, final TextView tv)
-                {
-                    new CountDownTimer(seconds* 1000 + 1000,1000) {
-                        @Override
-                        public void onTick(long millisUntilFinished) {
-                            int seconds=(int) (millisUntilFinished/1000);
-                            int minutes= seconds%60;
-                            tv.setText(String.format("%02d",minutes)
-                                    + ":" + String.format("%02d",seconds));
-                        }
-
-                        @Override
-                        public void onFinish() {
-                            tv.setText("completed");
-                            Intent myintent = new Intent(writtenExam.this, ResultActivity.class);
-                            myintent.putExtra("total", String.valueOf(total));
-                            startActivity(myintent);
-
-                        }
-                    }.start();
-
-                }
-
-
             });
         }
     }
 
+    public void ReverseTimer(int seconds, final TextView tv) {
+        new CountDownTimer(seconds* 1000 + 1000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int seconds=(int) (millisUntilFinished/1000);
+                int minutes= seconds%60;
+                tv.setText(String.format("%02d",minutes)
+                        + ":" + String.format("%02d",seconds));
+            }
+
+            @Override
+            public void onFinish() {
+                tv.setText("completed");
+                Intent myintent = new Intent(writtenExam.this, ResultActivity.class);
+                myintent.putExtra("total", String.valueOf(total));
+                startActivity(myintent);
+
+            }
+        }.start();
+    }
 }

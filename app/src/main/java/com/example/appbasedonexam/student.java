@@ -11,6 +11,16 @@ public class student {
     private String date;
     private String answer,ques;
 
+    student(String answer) {
+        this.answer = answer;
+    }
+
+    student(String roll, String course_no, String date) {
+        Roll = roll;
+        this.course_no = course_no;
+        this.date = date;
+    }
+
     public student(String roll, String course_no, String year, String semester, String date, String answer, String ques) {
         Roll = roll;
         this.course_no = course_no;
