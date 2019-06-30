@@ -79,10 +79,9 @@
             android:id="@+id/semester"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Roll:"
-            android:textStyle="bold"
+            android:text="Semester:"
             android:textSize="28sp"
-            />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edit_semester"
@@ -178,6 +177,13 @@
         android:textSize="18dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/progressbarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center" />
 
 
 </LinearLayout>

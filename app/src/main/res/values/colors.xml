@@ -65,4 +65,7 @@
     <color name="Light_Background">#EDE7F6</color>
     <color name="colorGreen">#00FA9A</color>
     <color name="colorRed">#FF0000</color>
+
+    <color name="cal_button_color">#008577</color>
+    <color name="cal_txt">#00FFFF</color>
 </resources>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,6 +23,7 @@ public class EnterWritten extends AppCompatActivity {
     EditText roll1,course_no1,date1,year1,semester1;
     Button let_start,done_btn;
     DatabaseReference databaseReference;
+    private ProgressBar progressBar;
 
     DatePickerDialog datePickerDialog;
     @Override
@@ -31,6 +33,7 @@ public class EnterWritten extends AppCompatActivity {
 
         databaseReference=FirebaseDatabase.getInstance().getReference("students");
 
+        progressBar = findViewById(R.id.progressbarId);
         roll=findViewById(R.id.roll);
         roll1=findViewById(R.id.edit_roll);
         course_no=findViewById(R.id.course_no);
@@ -79,7 +82,7 @@ public class EnterWritten extends AppCompatActivity {
                 }
 
                 if (roll.length()<7) {
-                    roll1.setError("Valid roll length of roll should be 7");
+                    roll1.setError("Valid  length of roll should be 7");
                     roll1.requestFocus();
                     return;
                 }
@@ -112,6 +115,8 @@ public class EnterWritten extends AppCompatActivity {
                     date1.setError("Enter a date");
                     date1.requestFocus();
                 }
+
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
 
@@ -153,6 +158,7 @@ public class EnterWritten extends AppCompatActivity {
                 public void onSuccess(Void aVoid) {
                     startActivity(new Intent(EnterWritten.this, writtenExam.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                 }
+
             });
         }
     }

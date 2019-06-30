@@ -15,6 +15,15 @@
     <string name="option8">Follow The Instructions</string>
 
 
+    <string name="square_root_symbol">\u221a</string>
+    <string name="cube_root_symbol">\u221B</string>
+    <string name="fourth_root_symbol">\u221a</string>
+    <string name="pie_symbol">\u03C0</string>
+    <string name="xsquare">x\u00B2</string>
+    <string name="xcube">x\u00B3</string>
+    <string name="exponent">e\u00B0</string>
+    <string name="dividesymbol">x\u246B</string>
+
     <string name="firstBtn">option.1</string>
     <string name="secondBtn">option.2</string>
     <string name="thirdBtn">option.3</string>
