@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:hint="Enter your roll"
+            android:inputType="number"
             android:textAlignment="center"
             android:textSize="22sp"
             />
@@ -117,6 +118,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:hint="Enter your courseNo"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="22sp"
             />

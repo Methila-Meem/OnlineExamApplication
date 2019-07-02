@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:weightSum="2"
     android:gravity="center"
-    android:background="@color/Background"
+    android:background="@drawable/Front_backgnd"
     android:padding="5dp"
     android:orientation="vertical"
     tools:context=".FrontActivity">
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
         android:layout_margin="5dp"
-        android:background="@color/Dark_Background" />
+        android:background="@color/dark_blue" />
 
     <LinearLayout
         android:gravity="center"
@@ -37,7 +37,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/dark_slate_blue">
+                android:background="@color/cornflower_blue">
                 <ImageView
                     android:background="@drawable/circlebackground_gray"
                     android:padding="10dp"
@@ -80,7 +80,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/forest_green">
+                android:background="@color/dark_turquoise">
                 <ImageView
                     android:background="@drawable/circlebackground_gray"
                     android:padding="10dp"
@@ -136,7 +136,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/purple">
+                android:background="@color/dark_turquoise">
                 <ImageView
                     android:background="@drawable/circlebackground_gray"
                     android:padding="10dp"
