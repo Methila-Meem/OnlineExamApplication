@@ -20,7 +20,7 @@ public class writtenExam extends AppCompatActivity {
 
     TextView question, timer;
     EditText answer;
-    Button submit;
+    Button submit,back,next;
     DatabaseReference databaseReference;
     int total = 0;
     private Object student;
@@ -38,6 +38,8 @@ public class writtenExam extends AppCompatActivity {
         timer = findViewById(R.id.timerText);
         answer = findViewById(R.id.answer);
         submit = findViewById(R.id.submit1);
+        back=findViewById(R.id.back);
+        next=findViewById(R.id.next);
 
         updateQuestion();
         ReverseTimer(30, timer);
