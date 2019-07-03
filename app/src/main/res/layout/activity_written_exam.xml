@@ -13,7 +13,7 @@
         android:id="@+id/calculator"
         android:layout_width="50dp"
         android:layout_height="70dp"
-        android:src="@drawable/ic_cal"
+        android:src="@drawable/calculator"
         android:layout_marginLeft="320dp"
         />
 

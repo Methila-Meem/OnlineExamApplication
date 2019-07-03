@@ -87,6 +87,9 @@ public class writtenExam extends AppCompatActivity {
         String name = answer.getText().toString().trim();
         student student = new student(name);
         databaseReference.child(roll).setValue(student);
+        databaseReference.child(courseNo).setValue(student);
+        databaseReference.child(year).setValue(student);
+        databaseReference.child(date).setValue(student);
         updateQuestion(true);
     }
 
@@ -133,7 +136,7 @@ public class writtenExam extends AppCompatActivity {
             @Override
             public void onFinish() {
                 tv.setText("completed");
-                Intent myintent = new Intent(writtenExam.this, ResultActivity.class);
+                Intent myintent = new Intent(writtenExam.this, complete.class);
                 myintent.putExtra("total", String.valueOf(total));
                 startActivity(myintent);
 
