@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +25,7 @@ public class writtenExam extends AppCompatActivity {
     DatabaseReference databaseReference;
     int total = 0;
     private Object student;
+    ImageView calculator;
 
 
     @Override
@@ -34,11 +36,23 @@ public class writtenExam extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+
+        calculator=findViewById(R.id.calculator);
         question = findViewById(R.id.question1);
         timer = findViewById(R.id.timerText);
         answer = findViewById(R.id.answer);
         submit = findViewById(R.id.submit1);
         back=findViewById(R.id.back);
+
+
+
+        calculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(writtenExam.this,ScientificCalculator.class);
+                startActivity(intent);
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background"
+    android:background="@drawable/front_backgnd"
     android:padding="20dp"
     android:orientation="vertical"
     tools:context=".EnterWritten">
@@ -63,6 +63,7 @@
             android:padding="10dp"
             android:hint="Enter academic year"
             android:textAlignment="center"
+            android:inputType="text"
             android:textSize="22sp"
             />
     </LinearLayout>
@@ -90,6 +91,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:hint="even/odd"
+            android:inputType="text"
             android:textAlignment="center"
             android:textSize="22sp"
             />
@@ -146,6 +148,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:hint="Enter exam date"
+            android:inputType="number"
             android:textAlignment="center"
             android:textSize="22sp"
             />

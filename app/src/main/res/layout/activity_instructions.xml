@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/Background"
+    android:background="@drawable/front_backgnd"
     tools:context=".InstructionsActivity">
 
     <TextView
@@ -15,8 +15,9 @@
         android:text="Follow the following instruction:"
         android:textColor="@color/Dark_Background"
         android:textStyle="bold"
+        android:textSize="28dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:padding="8dp"
@@ -34,7 +35,7 @@
         android:layout_marginRight="20dp"
         android:textColor="@color/colorBlack"
         android:padding="0dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_height="wrap_content"
         android:gravity="start" />
 
@@ -48,7 +49,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:padding="0dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textColor="@color/colorBlack"
         android:layout_height="wrap_content"
         android:gravity="start" />
@@ -63,7 +64,7 @@
         android:layout_marginRight="20dp"
         android:textColor="@color/colorBlack"
         android:padding="0dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
 
         android:layout_height="wrap_content"
         android:gravity="start"/>
@@ -78,7 +79,7 @@
         android:textColor="@color/colorBlack"
         android:layout_marginRight="20dp"
         android:padding="0dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_height="wrap_content"
         android:gravity="start"/>
 
@@ -92,7 +93,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:padding="0dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_height="wrap_content"
         android:gravity="start"/>
 
@@ -106,7 +107,7 @@
         android:textColor="@color/colorBlack"
         android:layout_marginRight="20dp"
         android:padding="8dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_height="wrap_content"
         android:gravity="start"/>
     <TextView
@@ -118,7 +119,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:padding="0dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textColor="@color/colorBlack"
         android:layout_height="wrap_content"
 

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".complete"></activity>
+        <activity android:name=".AttendenceAcivity"></activity>
+        <activity android:name=".complete" />
         <activity android:name=".writtenExam" />
         <activity android:name=".EnterWritten" />
         <activity android:name=".QuizQuestionActivity" />

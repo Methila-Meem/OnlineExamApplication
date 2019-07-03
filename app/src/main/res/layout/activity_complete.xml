@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background"
+    android:background="@drawable/front_backgnd"
     tools:context=".complete">
 
     <TextView
@@ -14,9 +14,9 @@
         android:layout_gravity="center"
         android:text="Completed"
         android:padding="10dp"
-        android:textColor="@color/colorBlack"
-        android:textSize="27sp"
+        android:textColor="@color/colorWhite"
+        android:textSize="37dp"
         android:textStyle="bold"
-        android:layout_marginLeft="130dp"/>
+        android:layout_marginLeft="100dp"/>
 
 </LinearLayout>

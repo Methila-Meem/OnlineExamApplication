@@ -5,9 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Background"
+    android:background="@drawable/front_backgnd"
     android:padding="20dp"
-    tools:context=".writtenExam">
+    tools:context="writtenExam">
+
+    <ImageView
+        android:id="@+id/calculator"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:src="@drawable/calculator"
+        android:layout_marginLeft="320dp"
+        />
 
 
         <TextView
