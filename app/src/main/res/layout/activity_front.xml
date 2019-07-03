@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:weightSum="2"
     android:gravity="center"
-    android:background="@drawable/Front_backgnd"
+    android:background="@drawable/front_backgnd"
     android:padding="5dp"
     android:orientation="vertical"
     tools:context=".FrontActivity">

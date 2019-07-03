@@ -39,9 +39,21 @@ public class writtenExam extends AppCompatActivity {
         answer = findViewById(R.id.answer);
         submit = findViewById(R.id.submit1);
         back=findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateQuestion(false);
+            }
+        });
         next=findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateQuestion(true);
+            }
+        });
 
-        updateQuestion();
+        updateQuestion(true);
         ReverseTimer(30, timer);
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -64,16 +76,17 @@ public class writtenExam extends AppCompatActivity {
     }
 
 
-    public void updateQuestion() {
+    public void updateQuestion(boolean value) {
 
-        total++;
+        if (value) total++;
+        else total--;
         System.out.println(total);
         if (total > 5) {
             Intent i = new Intent(writtenExam.this, ResultActivity.class);
 
             startActivity(i);
         } else {
-            databaseReference = FirebaseDatabase.getInstance().getReference().child("Sheet1").child(String.valueOf(total));
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Written Question").child(String.valueOf(total));
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
