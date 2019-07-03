@@ -86,13 +86,14 @@ public class writtenExam extends AppCompatActivity {
 
             startActivity(i);
         } else {
-            databaseReference = FirebaseDatabase.getInstance().getReference().child("Written Question").child(String.valueOf(total));
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Written Question").child("Sheet1").child(String.valueOf(total));
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    final student question = dataSnapshot.getValue(student.class);
+                    String string = dataSnapshot.child("question").getValue().toString();
+                    System.out.println(string);
                     if (question!= null) {
-                         question.setText(question.getQues());
+                         question.setText(string);
                     } else {
                         System.out.println("total=" + total);
                     }
