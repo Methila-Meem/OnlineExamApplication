@@ -34,6 +34,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".UploadActivity" />
+        <activity android:name=".FrontMain" />
+        <activity android:name=".ScientificCalculator" />
+        <activity android:name=".CgpaCalcActivity" />
+        <activity android:name=".cgpa_result" />
     </application>
 
 </manifest>

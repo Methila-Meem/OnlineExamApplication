@@ -146,20 +146,16 @@ public class EnterWritten extends AppCompatActivity {
     }
 
     public void saveData() {
-        String roll=roll1.getText().toString().trim();
-        String course_no=course_no1.getText().toString().trim();
-        String date=date1.getText().toString().trim();
-
-        String key=databaseReference.push().getKey();
-        student student=new student(roll,course_no,date);
-        if (key != null) {
-            databaseReference.child(key).setValue(student).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    startActivity(new Intent(EnterWritten.this, writtenExam.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                }
-
-            });
-        }
+        final String roll=roll1.getText().toString().trim();
+        final String course_no=course_no1.getText().toString().trim();
+        final String date=date1.getText().toString().trim();
+        final String year = year1.getText().toString();
+        startActivity(new Intent(EnterWritten.this, writtenExam.class)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra("roll", roll)
+                .putExtra("year", year)
+                .putExtra("courseNo", course_no)
+                .putExtra("date", date)
+        );
     }
 }

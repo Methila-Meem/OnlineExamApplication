@@ -21,7 +21,7 @@ import java.text.DecimalFormat;
 
 public class AttendenceAcivity extends AppCompatActivity {
     TextView text,percentage;
-    //EditText percentage;
+    EditText roll;
     Button btn;
     DatabaseReference ref;
     CircularSeekBar seekBar;
@@ -36,8 +36,9 @@ public class AttendenceAcivity extends AppCompatActivity {
         percentage=findViewById(R.id.percentage);
         btn=findViewById(R.id.btn);
         seekBar=findViewById(R.id.seekbar);
+        roll=findViewById(R.id.roll);
 
-        seekBar.setProgressTextFormat(new DecimalFormat("###,###,###,##0,00"));
+        seekBar.setProgressTextFormat(new DecimalFormat("###,###,###,##0.00"));
         seekBar.setProgress(0);
         seekBar.setRingColor(Color.GREEN);
        seekBar.setOnCenterClickedListener(new CircularSeekBar.OnCenterClickedListener() {
@@ -45,12 +46,14 @@ public class AttendenceAcivity extends AppCompatActivity {
            public void onCenterClicked(CircularSeekBar seekBar, float progress) {
                Snackbar.make(seekBar,"Reset",Snackbar.LENGTH_SHORT).show();
                seekBar.setProgress(0);
+
            }
        });
 
        seekBar.setOnCircularSeekBarChangeListener(new CircularSeekBar.OnCircularSeekBarChangeListener() {
            @Override
            public void onProgressChanged(CircularSeekBar seekBar, float progress, boolean fromUser) {
+               if (fromUser) return;
                if(progress<20){
                    seekBar.setRingColor(Color.GREEN);
                }
@@ -78,14 +81,12 @@ public class AttendenceAcivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ref= FirebaseDatabase.getInstance().getReference().child("Attendence").child("1");
+                String rollNo = roll.getText().toString();
+                ref= FirebaseDatabase.getInstance().getReference().child("Attendence").child("Sheet1").child(rollNo);
                 ref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-
-                        String name=dataSnapshot.child("percentage").getValue().toString();
+                        String name=dataSnapshot.child("present%").getValue().toString();
                         percentage.setText(name);
                     }
 

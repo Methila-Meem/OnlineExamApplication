@@ -23,6 +23,19 @@
         />
 
 
+
+    <EditText
+        android:id="@+id/roll"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Roll"
+        android:background="@color/colorWhite"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+
+ />
+
     <Button
         android:id="@+id/btn"
         android:layout_width="150dp"

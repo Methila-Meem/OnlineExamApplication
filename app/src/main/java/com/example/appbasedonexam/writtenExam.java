@@ -26,6 +26,7 @@ public class writtenExam extends AppCompatActivity {
     int total = 0;
     private Object student;
     ImageView calculator;
+    private String roll, courseNo, date, year;
 
 
     @Override
@@ -33,7 +34,10 @@ public class writtenExam extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_written_exam);
 
-
+        roll = getIntent().getStringExtra("roll");
+        courseNo = getIntent().getStringExtra("courseNo");
+        date = getIntent().getStringExtra("date");
+        year = getIntent().getStringExtra("year");
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
@@ -80,24 +84,17 @@ public class writtenExam extends AppCompatActivity {
     }
 
     public void saveData() {
-
         String name = answer.getText().toString().trim();
-
-
-        String key = databaseReference.push().getKey();
         student student = new student(name);
-        databaseReference.child(key).setValue(student);
+        databaseReference.child(roll).setValue(student);
+        updateQuestion(true);
     }
 
 
-    public void updateQuestion(boolean value) {
-
-        if (value) total++;
-        else total--;
+    public void updateQuestion(final boolean value) {
         System.out.println(total);
         if (total > 5) {
             Intent i = new Intent(writtenExam.this, ResultActivity.class);
-
             startActivity(i);
         } else {
             databaseReference = FirebaseDatabase.getInstance().getReference().child("Written Question").child("Sheet1").child(String.valueOf(total));
@@ -108,6 +105,8 @@ public class writtenExam extends AppCompatActivity {
                     System.out.println(string);
                     if (question!= null) {
                          question.setText(string);
+                        if (value) total++;
+                        else total--;
                     } else {
                         System.out.println("total=" + total);
                     }

@@ -83,7 +83,7 @@ public class FrontMain extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(FrontMain.this, ProfileActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.attandenceCardViewID) {
-            Intent intent = new Intent(FrontMain.this, HelperActivity.class);
+            Intent intent = new Intent(FrontMain.this, AttendenceAcivity.class);
             startActivity(intent);
 
         } else if (v.getId() == R.id.ExaminationCardViewID) {

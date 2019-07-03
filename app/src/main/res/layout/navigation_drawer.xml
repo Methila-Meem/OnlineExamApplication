@@ -11,7 +11,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <include layout="@layout/activity_front"/>
+    <include layout="@layout/activity_front_main"/>
 
     <android.support.design.widget.NavigationView
 
