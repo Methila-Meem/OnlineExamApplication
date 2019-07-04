@@ -46,9 +46,13 @@ public class writtenExam extends AppCompatActivity {
         timer = findViewById(R.id.timerText);
         answer = findViewById(R.id.answer);
         submit = findViewById(R.id.submit1);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                upload();
+            }
+        });
         back=findViewById(R.id.back);
-
-
 
         calculator.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +87,10 @@ public class writtenExam extends AppCompatActivity {
 
     }
 
+    private void upload() {
+        databaseReference.child("Written Question").child("Sheet1").child(String.valueOf(total)).child(roll).setValue(answer.getText().toString());
+    }
+
     public void saveData() {
         String name = answer.getText().toString().trim();
         student student = new student(name);
@@ -95,6 +103,10 @@ public class writtenExam extends AppCompatActivity {
 
 
     public void updateQuestion(final boolean value) {
+        if (total != 0) {
+            upload();
+        }
+        answer.setText("");
         System.out.println(total);
         if (total > 5) {
             Intent i = new Intent(writtenExam.this, ResultActivity.class);
@@ -104,14 +116,18 @@ public class writtenExam extends AppCompatActivity {
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String string = dataSnapshot.child("question").getValue().toString();
-                    System.out.println(string);
-                    if (question!= null) {
-                         question.setText(string);
-                        if (value) total++;
-                        else total--;
-                    } else {
-                        System.out.println("total=" + total);
+                    try {
+                        String string = dataSnapshot.child("question").getValue().toString();
+                        System.out.println(string);
+                        if (question!= null) {
+                            question.setText(string);
+                            if (value) total++;
+                            else total--;
+                        } else {
+                            System.out.println("total=" + total);
+                        }
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
                     }
                 }
 

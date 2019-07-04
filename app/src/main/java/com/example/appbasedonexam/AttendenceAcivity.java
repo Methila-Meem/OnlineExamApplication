@@ -88,6 +88,9 @@ public class AttendenceAcivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String name=dataSnapshot.child("present%").getValue().toString();
                         percentage.setText(name);
+                        seekBar.setProgress(Float.parseFloat(name));
+                        seekBar.setProgressTextColor(getResources().getColor(R.color.white));
+                        seekBar.setSpeedMultiplier(Float.parseFloat(name));
                     }
 
                     @Override

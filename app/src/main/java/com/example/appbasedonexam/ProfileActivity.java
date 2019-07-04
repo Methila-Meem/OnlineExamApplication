@@ -11,9 +11,20 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        String total = sharedPref.getData("total");
-        String correct=sharedPref.getData("correct");
-        String wrong=sharedPref.getData("wrong");
-
+        try {
+            String total = sharedPref.getData("total");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        try {
+            String correct=sharedPref.getData("correct");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        try {
+            String wrong=sharedPref.getData("wrong");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 }
